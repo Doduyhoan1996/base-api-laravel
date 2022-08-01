@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\ConfigController;
 use App\Http\Controllers\Api\OptionController;
+use App\Http\Controllers\Api\SocialLoginController;
 use App\Http\Controllers\Api\TagController;
 use App\Http\Controllers\Api\TopicController;
 use App\Http\Controllers\Api\UserController;
@@ -73,3 +74,9 @@ Route::group(['prefix' => 'auth'], static function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/register', [AuthController::class, 'register']);
 });
+
+Route::get('/facebook-login',[SocialLoginController::class,'loginFaceBook'])->name('facebook_login');
+Route::get('/google-login',[SocialLoginController::class,'loginGoogle'])->name('login.google');
+Route::get('/instagram-login',[SocialLoginController::class,'loginInstagram'])->name('login.insta');
+Route::get('/github-login',[SocialLoginController::class,'loginGitHub'])->name('login.github');
+Route::get('/linkedin-login',[SocialLoginController::class,'loginLinkedIn'])->name('login.linkedin');
